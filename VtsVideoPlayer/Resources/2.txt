@@ -1,0 +1,16 @@
+   var totalQtyurchase = db.PurchaseInvoicesDetails
+                               .Where(x => !x.IsDeleted && x.ItemId == itemall.ItemId)
+                               .Sum(x => (decimal?)x.Quantity) ?? 0;
+
+   var totalQtyuProduction = db.ProductionOrderDetails
+                              .Where(x => !x.IsDeleted && x.ItemId == itemall.ItemId)
+                              .Sum(x => (decimal?)x.Quantity) ?? 0;
+   bool doneQty;
+   if (totalQtyurchase > totalQtyuProduction)
+   {
+       doneQty = true;
+   }
+   else
+   {
+       doneQty = false;
+   }

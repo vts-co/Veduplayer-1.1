@@ -1,0 +1,4 @@
+﻿1-create a bucket
+2-upload file to object storage S3 server
+3-save file url in database
+4-generate presigned(temp) URLs
